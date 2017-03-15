@@ -9,4 +9,8 @@ const Cell = ({ isAlive }) => {
   );
 }
 
+Cell.propTypes = {
+  isAlive: PropTypes.bool,
+}
+
 export default Cell;
