@@ -9,7 +9,7 @@ class Board extends Component {
 
   static propTypes = {
     cells: PropTypes.arrayOf(
-      PropTypes.arrayOf(PropTypes.number)
+      PropTypes.arrayOf(PropTypes.bool)
     ),
     toggleCell: PropTypes.func,
   }
