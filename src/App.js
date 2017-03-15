@@ -11,10 +11,11 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cells: createCells({ rows: 20, cols: 80 }),
+      cells: createCells({ rows: 40, cols: 40 }),
       // TODO: constants to share default board size?
       cols: 80,
       rows: 40,
+      evolving: false,
     }
   }
 
@@ -23,9 +24,23 @@ class App extends Component {
   }
 
   tick = () => {
+    // this.stop()
     this.setState({
       cells: evolve(this.state.cells)
     })
+  }
+
+  evolve = () => {
+    this.stop()
+    this.tick()
+    this.timeout = setTimeout(() => {
+      this.evolve()
+    }, 50)
+    // TODO: make speed adjustable?
+  }
+
+  stop = () => {
+    clearTimeout(this.timeout)
   }
 
   randomise() {
@@ -44,7 +59,9 @@ class App extends Component {
       <div className="App">
         <h1>Welcome to the Game of Life!!!!</h1>
         <Board cells={this.state.cells} />
-        <button onClick={this.tick}>EVOLVE</button>
+        <button onClick={this.tick}>TICK</button>
+        <button onClick={this.evolve}>EVOLVE</button>
+        <button onClick={this.stop}>STAHP</button>
       </div>
     );
   }
