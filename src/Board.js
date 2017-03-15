@@ -14,16 +14,16 @@ class Board extends Component {
     toggleCell: PropTypes.func,
   }
 
-  renderCell(isAlive) {
+  renderCell(isAlive, index) {
     return (
-      <Cell isAlive={isAlive} />
+      <Cell isAlive={isAlive} key={`cell${index}`} />
     );
   }
 
-  renderRow(row = []) {
+  renderRow(row = [], index) {
     return (
-      <div className="Board__row">
-        { row.map(cell => this.renderCell(cell)) }
+      <div className="Board__row" key={`row${index}`}>
+        { row.map((cell, i) => this.renderCell(cell, i)) }
       </div>
     )
   }
@@ -31,7 +31,7 @@ class Board extends Component {
   render() {
     return (
       <div>
-        { this.props.cells.map(row => this.renderRow(row)) }
+        { this.props.cells.map((row, i) => this.renderRow(row, i)) }
       </div>
     )
   }
