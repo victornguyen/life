@@ -21,10 +21,15 @@ class App extends Component {
 
   }
 
-  renderBlock() {
-    return (
-      <div className="Block"></div>
-    );
+  randomise() {
+    const { cols, rows } = this.state
+    this.setState({
+      cells: createCells({
+        cols,
+        rows,
+        randomise: true
+      })
+    })
   }
 
   render() {
