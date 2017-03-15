@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createCells } from './utils/cells'
+import { evolve } from './utils/neighbours'
 import Board from './Board';
 import './App.css';
 
@@ -21,6 +22,12 @@ class App extends Component {
 
   }
 
+  tick = () => {
+    this.setState({
+      cells: evolve(this.state.cells)
+    })
+  }
+
   randomise() {
     const { cols, rows } = this.state
     this.setState({
@@ -37,6 +44,7 @@ class App extends Component {
       <div className="App">
         <h1>Welcome to the Game of Life!!!!</h1>
         <Board cells={this.state.cells} />
+        <button onClick={this.tick}>EVOLVE</button>
       </div>
     );
   }
