@@ -12,9 +12,10 @@ export function evolve(cells = []) {
 }
 
 function isAlive({ x, y, cells }) {
-  return aliveNeighbours(
+  const alive = aliveNeighbours(
     meetTheNeighbours({ x, y, cells })
-  ) === 2
+  )
+  return alive === 2 || alive === 3
 }
 
 // TODO: relocate?
