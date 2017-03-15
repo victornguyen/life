@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import Cell from './Cell';
+import './Board.css';
 
-// just concerned with receive new `cells` array and rendering result
+// just concerned with receiving new `cells` array and rendering result
 // also needs to pass a `toggleCell` callback to `Cell` component so users can click them
 
 class Board extends Component {
@@ -12,30 +14,24 @@ class Board extends Component {
     toggleCell: PropTypes.func,
   }
 
-  renderCell(cell) {
+  renderCell(isAlive) {
     return (
-      <span>{cell}</span>
-    )
+      <Cell isAlive={isAlive} />
+    );
   }
 
-  renderRow() {
-
+  renderRow(row = []) {
+    return (
+      <div className="Board__row">
+        { row.map(cell => this.renderCell(cell)) }
+      </div>
+    )
   }
 
   render() {
     return (
       <div>
-        {
-          this.props.cells.map(row => {
-            return (
-              <div>
-                {row.map(cell => {
-                  return this.renderCell(cell)
-                })}
-              </div>
-            )
-          })
-        }
+        { this.props.cells.map(row => this.renderRow(row)) }
       </div>
     )
   }

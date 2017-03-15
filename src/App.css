@@ -8,13 +8,3 @@
   padding: 20px;
   color: white;
 }
-
-.Block {
-  width: 5px;
-  height: 5px;
-  background: blue;
-}
-
-.Block--active {
-  background: green;
-}
