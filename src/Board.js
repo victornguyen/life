@@ -45,7 +45,7 @@ class Board extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Board">
         { this.props.cells.map((row, y) => this.renderRow(row, y)) }
       </div>
     )

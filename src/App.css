@@ -8,3 +8,15 @@
   padding: 20px;
   color: white;
 }
+
+.App__controls {
+  margin-bottom: 20px;
+}
+
+.App__speed {
+  margin-bottom: 20px;
+}
+
+.App__slider {
+  margin: 0 10px;
+}

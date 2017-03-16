@@ -1,9 +1,22 @@
 .Cell {
-  width: 10px;
-  height: 10px;
-  background: #eee;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.Cell--dead {
+  background: #E3F0EB;
+}
+
+.Cell--dead:hover {
+  background: #C2DFD5;
 }
 
 .Cell--alive {
-  background: lime;
+  background: #72E1D1;
 }
+
+.Cell--alive:hover {
+  background: #98E9DD;
+}
+

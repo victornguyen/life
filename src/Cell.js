@@ -8,7 +8,7 @@ const Cell = ({ isAlive, toggle, x, y }) => {
   }
   return (
     <div
-      className={classnames('Cell', { 'Cell--alive': isAlive })}
+      className={classnames('Cell', { 'Cell--alive': isAlive, 'Cell--dead': !isAlive })}
       onClick={handleClick}
     >
     </div>

@@ -3,6 +3,7 @@ import { createCells, toggleCell } from './utils/cells'
 import { evolve } from './utils/cells'
 import { BOARD_DEFAULTS, SPEED_DEFAULT } from './constants'
 import Board from './Board';
+import Button from './Button';
 import './App.css';
 
 // Contain UI to set board size and randomize
@@ -83,18 +84,32 @@ class App extends Component {
     const { cells, evolving, speed } = this.state
     return (
       <div className="App">
-        <h1>Welcome to the Game of Life!!!!</h1>
+        <h1>Life: The Game 👾</h1>
+        <p>Tip: you can click on a cell to (un)kill it.</p>
         <Board cells={cells} toggle={this.toggle} />
-        <button onClick={this.randomise}>NEW GAME</button>
-        <button onClick={this.clear}>CLEAR</button>
-        <button onClick={this.tick}>TICK</button>
-        {
-          evolving
-            ? <button onClick={this.stop}>STOP</button>
-            : <button onClick={this.evolve}>EVOLVE</button>
-        }
-        <input type="range" min="50" max="1000" step="50" value={speed} onChange={this.handleSpeedChange} />
-        {speed}ms
+        <div className="App__controls">
+          <Button onClick={this.randomise}>NEW GAME</Button>
+          <Button onClick={this.clear}>CLEAR</Button>
+          <Button onClick={this.tick}>TICK</Button>
+          {
+            evolving
+              ? <Button onClick={this.stop}>STOP</Button>
+              : <Button onClick={this.evolve}>EVOLVE</Button>
+          }
+        </div>
+        <div className="App__speed">
+          Evolution speed:
+          <input
+            className="App__slider"
+            type="range"
+            min="50"
+            max="1000"
+            step="50"
+            value={speed}
+            onChange={this.handleSpeedChange}
+          />
+          {speed}ms
+        </div>
       </div>
     );
   }

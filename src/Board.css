@@ -1,5 +1,8 @@
 .Board {
-
+  display: inline-block;
+  border: 1px solid #C2DFD5;
+  border-radius: 3px;
+  margin: 10px 0 30px;
 }
 
 .Board__row {
