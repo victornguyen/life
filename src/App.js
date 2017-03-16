@@ -93,7 +93,7 @@ class App extends Component {
           <Button onClick={this.tick}>TICK</Button>
           {
             evolving
-              ? <Button onClick={this.stop}>STOP</Button>
+              ? <Button onClick={this.stop} theme="red">STOP</Button>
               : <Button onClick={this.evolve}>EVOLVE</Button>
           }
         </div>
