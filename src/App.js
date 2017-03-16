@@ -25,7 +25,7 @@ class App extends Component {
       cells: toggleCell({
         x,
         y,
-        cells: this.state.cells
+        cells: this.state.cells,
       })
     })
   }
