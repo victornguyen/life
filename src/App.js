@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   tick = () => {
-    // this.stop()
+    this.stop()
     this.setState({
       cells: evolve(this.state.cells)
     })
@@ -58,10 +58,12 @@ class App extends Component {
   }
 
   clear = () => {
+    this.stop()
     this.generateCells({ random: false })
   }
 
   randomise = () => {
+    this.stop()
     this.generateCells({ random: true })
   }
 
