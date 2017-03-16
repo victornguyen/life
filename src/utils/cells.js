@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash/cloneDeep'
 import times from 'lodash/times'
 import { shouldCellLive } from './neighbours'
 
@@ -22,11 +23,12 @@ export function getCell({ x, y, cells = [] }) {
 }
 
 export function toggleCell({ x, y, cells = [] } = {}) {
-  const cell = getCell({ x, y, cells })
+  const newCells = cloneDeep(cells)
+  const cell = getCell({ x, y, cells: newCells })
   if (cell !== null) {
-    cells[y][x] = !cell
+    newCells[y][x] = !cell
   }
-  return cells
+  return newCells
 }
 
 export function evolve(cells = []) {
