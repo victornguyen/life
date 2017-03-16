@@ -1,4 +1,4 @@
-import { toggleCell } from './cells';
+import { toggleCell } from './cells'
 
 describe('createCells', () => {
   
@@ -18,7 +18,7 @@ describe('toggleCell', () => {
       [false, false, false],
       [false, false, false],
     ])
-  });
+  })
 
   it('toggles the correct alive cell', () => {
     const cells = [
@@ -33,7 +33,7 @@ describe('toggleCell', () => {
       [false, false, false],
       [false, false, false],
     ])
-  });
+  })
 
   it('returns the same cells when given invalid coords', () => {
     const cells = [

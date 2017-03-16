@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
-import classnames from 'classnames';
-import './Cell.css';
+import React, { PropTypes } from 'react'
+import classnames from 'classnames'
+import './Cell.css'
 
 const Cell = ({ isAlive, toggle, x, y }) => {
   const handleClick = () => {
@@ -12,7 +12,7 @@ const Cell = ({ isAlive, toggle, x, y }) => {
       onClick={handleClick}
     >
     </div>
-  );
+  )
 }
 
 Cell.propTypes = {
@@ -22,4 +22,5 @@ Cell.propTypes = {
   y: PropTypes.number,
 }
 
-export default Cell;
+export default Cell
+

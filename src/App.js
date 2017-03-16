@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { createCells, toggleCell } from './utils/cells'
 import { evolve } from './utils/cells'
 import { BOARD_DEFAULTS, SPEED_DEFAULT } from './constants'
-import Board from './Board';
-import Button from './Button';
-import './App.css';
+import Board from './Board'
+import Button from './Button'
+import './App.css'
 
 class App extends Component {
 
@@ -109,8 +109,9 @@ class App extends Component {
           {speed}ms
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
+

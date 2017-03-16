@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 import isEqual from 'lodash/isEqual'
-import Cell from './Cell';
-import './Board.css';
+import Cell from './Cell'
+import './Board.css'
 
 // just concerned with receiving new `cells` array and rendering result
 
@@ -27,7 +27,7 @@ class Board extends Component {
         x={x}
         y={y}
       />
-    );
+    )
   }
 
   renderRow(row = [], y) {
@@ -51,5 +51,5 @@ class Board extends Component {
   }
 }
 
-export default Board;
+export default Board
 
