@@ -24,7 +24,7 @@ $ npm test
 - Used React to demonstrate I can use React (given the role)
 - Although using `<canvas>` to render the board might've been more suitable
 - Used [Create React App](https://github.com/facebookincubator/reate-react-app) to bootstrap the project to minimise time spent on scaffolding
-- As a result, the CSS implementation is pretty rudimentary (no pre-pocessing or CSS Modules), not that this needed anything more
+- As a result, the CSS implementation is pretty rudimentary (no pre-processing or CSS Modules), not that this needed anything more
 - Used a 2D array to store cell data because traversing rows and columns seemed natural that way. But as an absolute representation of each cell, a flat array of objects `[ { x:0, y:0, live:true }, ... ]` might've been more explicit.
 - Completely missed the _"Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction"_ part of the rules until this morning while I was doing the README 😅
 
