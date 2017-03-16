@@ -1,6 +1,6 @@
 # Life: The Game 👾
 
-A Javascript-based implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) with a UI available at [https://victornguyen.github.io/life](https://victornguyen.github.io/life)
+A JavaScript-based implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) with a UI available at [https://victornguyen.github.io/life](https://victornguyen.github.io/life)
 
 ## Quick start
 
