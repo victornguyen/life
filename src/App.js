@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createCells, toggleCell } from './utils/cells'
 import { evolve } from './utils/cells'
+import { BOARD_DEFAULTS } from './constants'
 import Board from './Board';
 import './App.css';
 
@@ -10,11 +11,11 @@ class App extends Component {
 
   constructor(props) {
     super(props)
+    const { ROWS: rows, COLS: cols } = BOARD_DEFAULTS
     this.state = {
-      cells: createCells({ rows: 40, cols: 40 }),
-      // TODO: constants to share default board size?
-      cols: 80,
-      rows: 40,
+      cells: createCells({ rows, cols }),
+      cols,
+      rows,
       evolving: false,
     }
   }
