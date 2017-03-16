@@ -1,4 +1,5 @@
 import times from 'lodash/times'
+import { shouldCellLive } from './neighbours'
 
 export function createCells({ cols = 10, rows = 5, randomise = false } = {}) {
   return times(rows, () => times(cols, () => {
@@ -24,5 +25,11 @@ export function toggleCell({ x, y, cells = [] } = {}) {
     cells[y][x] = !cell
   }
   return cells
+}
+
+export function evolve(cells = []) {
+  return cells.map((row, y) => {
+    return row.map((cell, x) => shouldCellLive({ x, y, cells }))
+  })
 }
 

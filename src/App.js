@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createCells, toggleCell } from './utils/cells'
-import { evolve } from './utils/neighbours'
+import { evolve } from './utils/cells'
 import Board from './Board';
 import './App.css';
 
