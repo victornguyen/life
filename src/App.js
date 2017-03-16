@@ -30,16 +30,22 @@ class App extends Component {
     })
   }
 
-  tick = () => {
-    this.stop()
+  step = () => {
     this.setState({
       cells: evolve(this.state.cells)
     })
   }
 
-  evolve = () => {
+  tick = () => {
     this.stop()
-    this.tick()
+    this.step()
+  }
+
+  evolve = () => {
+    if (!this.state.evolving) {
+      this.setState({ evolving: true })
+    }
+    this.step()
     this.timeout = setTimeout(() => {
       this.evolve()
     }, 50)
@@ -47,6 +53,7 @@ class App extends Component {
   }
 
   stop = () => {
+    this.setState({ evolving: false })
     clearTimeout(this.timeout)
   }
 
@@ -75,8 +82,11 @@ class App extends Component {
         <button onClick={this.randomise}>NEW GAME</button>
         <button onClick={this.clear}>CLEAR</button>
         <button onClick={this.tick}>TICK</button>
-        <button onClick={this.evolve}>EVOLVE</button>
-        <button onClick={this.stop}>STAHP</button>
+        {
+          this.state.evolving
+            ? <button onClick={this.stop}>STOP</button>
+            : <button onClick={this.evolve}>EVOLVE</button>
+        }
       </div>
     );
   }
