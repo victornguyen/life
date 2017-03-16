@@ -12,7 +12,7 @@ describe('toggleCell', () => {
       [false, false, false],
     ]
     expect(
-      toggleCell({ col: 1, row: 0, cells })
+      toggleCell({ x: 1, y: 0, cells })
     ).toEqual([
       [false, true, false],
       [false, false, false],
@@ -27,7 +27,7 @@ describe('toggleCell', () => {
       [false, false, false],
     ]
     expect(
-      toggleCell({ col: 1, row: 1, cells })
+      toggleCell({ x: 1, y: 1, cells })
     ).toEqual([
       [false, false, false],
       [false, false, false],
@@ -42,7 +42,7 @@ describe('toggleCell', () => {
       [false, false, false],
     ]
     expect(
-      toggleCell({ col: 5, row: 5, cells })
+      toggleCell({ x: 5, y: 5, cells })
     ).toEqual([
       [false, false, false],
       [false, false, false],
