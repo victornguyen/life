@@ -1,10 +1,12 @@
 import times from 'lodash/times'
 import { shouldCellLive } from './neighbours'
 
-export function createCells({ cols = 10, rows = 5, randomise = false } = {}) {
+export function createCells({ cols = 10, rows = 5, random = false } = {}) {
   return times(rows, () => times(cols, () => {
-    // TODO: add weight slider to generate more dead/alive cells?
-    return Math.random() >= 0.9
+    return random
+      // TODO: add weight slider to generate more dead/alive cells?
+      ? Math.random() >= 0.9
+      : false
   }))
 }
 
