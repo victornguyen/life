@@ -70,6 +70,7 @@ class App extends Component {
       <div className="App">
         <h1>Welcome to the Game of Life!!!!</h1>
         <Board cells={this.state.cells} toggle={this.toggle} />
+        <button onClick={this.randomise}>NEW GAME</button>
         <button onClick={this.clear}>CLEAR</button>
         <button onClick={this.tick}>TICK</button>
         <button onClick={this.evolve}>EVOLVE</button>
