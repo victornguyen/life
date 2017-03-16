@@ -50,15 +50,19 @@ class App extends Component {
     clearTimeout(this.timeout)
   }
 
-  randomise() {
+  generateCells = ({ random }) => {
     const { cols, rows } = this.state
     this.setState({
-      cells: createCells({
-        cols,
-        rows,
-        randomise: true
-      })
+      cells: createCells({ cols, rows, random })
     })
+  }
+
+  clear = () => {
+    this.generateCells({ random: false })
+  }
+
+  randomise = () => {
+    this.generateCells({ random: true })
   }
 
   render() {
@@ -66,6 +70,7 @@ class App extends Component {
       <div className="App">
         <h1>Welcome to the Game of Life!!!!</h1>
         <Board cells={this.state.cells} toggle={this.toggle} />
+        <button onClick={this.clear}>CLEAR</button>
         <button onClick={this.tick}>TICK</button>
         <button onClick={this.evolve}>EVOLVE</button>
         <button onClick={this.stop}>STAHP</button>
