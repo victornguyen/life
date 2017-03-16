@@ -16,7 +16,7 @@ function getNeighbours({ x, y, cells = [] }) {
   return flatten(
     rows.map((yPoint) => {
       return cols.map((xPoint) => {
-        const isTargetCell = yPoint === x && xPoint === y
+        const isTargetCell = xPoint === x && yPoint === y
         if (isTargetCell) {
           return null
         }
