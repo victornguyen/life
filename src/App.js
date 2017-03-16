@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createCells } from './utils/cells'
+import { createCells, toggleCell } from './utils/cells'
 import { evolve } from './utils/neighbours'
 import Board from './Board';
 import './App.css';
@@ -19,8 +19,14 @@ class App extends Component {
     }
   }
 
-  toggleCell() {
-
+  toggle = ({ x, y }) => {
+    this.setState({
+      cells: toggleCell({
+        x,
+        y,
+        cells: this.state.cells
+      })
+    })
   }
 
   tick = () => {
@@ -58,7 +64,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Welcome to the Game of Life!!!!</h1>
-        <Board cells={this.state.cells} />
+        <Board cells={this.state.cells} toggle={this.toggle} />
         <button onClick={this.tick}>TICK</button>
         <button onClick={this.evolve}>EVOLVE</button>
         <button onClick={this.stop}>STAHP</button>

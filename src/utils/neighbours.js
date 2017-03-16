@@ -2,6 +2,7 @@
 // TODO: try flow typechecking?
 
 import flatten from 'lodash/flatten'
+import { getCell } from './cells'
 
 // TODO: relocate?
 // Determine next set of cells
@@ -16,18 +17,6 @@ function isAlive({ x, y, cells }) {
     meetTheNeighbours({ x, y, cells })
   )
   return alive === 2 || alive === 3
-}
-
-// TODO: relocate?
-function getCell({ x, y, cells = [] }) {
-  try {
-    if (cells[y][x] === undefined) {
-      return null
-    }
-    return cells[y][x]
-  } catch(e) {
-    return null
-  }
 }
 
 // Iterate through neighbours and count how many live ones there are

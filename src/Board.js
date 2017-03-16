@@ -11,19 +11,29 @@ class Board extends Component {
     cells: PropTypes.arrayOf(
       PropTypes.arrayOf(PropTypes.bool)
     ),
-    toggleCell: PropTypes.func,
+    toggle: PropTypes.func,
   }
 
-  renderCell(isAlive, index) {
+  renderCell({ isAlive, x, y }) {
     return (
-      <Cell isAlive={isAlive} key={`cell${index}`} />
+      <Cell
+        isAlive={isAlive}
+        key={`x${x}y${y}`}
+        toggle={this.props.toggle}
+        x={x}
+        y={y}
+      />
     );
   }
 
-  renderRow(row = [], index) {
+  renderRow(row = [], y) {
     return (
-      <div className="Board__row" key={`row${index}`}>
-        { row.map((cell, i) => this.renderCell(cell, i)) }
+      <div className="Board__row" key={y}>
+        {
+          row.map((cell, x) => (
+            this.renderCell({ isAlive: cell, x, y })
+          ))
+        }
       </div>
     )
   }
@@ -31,7 +41,7 @@ class Board extends Component {
   render() {
     return (
       <div>
-        { this.props.cells.map((row, i) => this.renderRow(row, i)) }
+        { this.props.cells.map((row, y) => this.renderRow(row, y)) }
       </div>
     )
   }
