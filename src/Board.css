@@ -3,6 +3,7 @@
 }
 
 .Board__row {
-  height: 10px;
+  display: flex;
+  justify-content: center;
 }
 
