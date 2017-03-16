@@ -6,8 +6,6 @@ import Board from './Board';
 import Button from './Button';
 import './App.css';
 
-// Contain UI to set board size and randomize
-
 class App extends Component {
 
   constructor(props) {

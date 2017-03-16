@@ -4,7 +4,6 @@ import Cell from './Cell';
 import './Board.css';
 
 // just concerned with receiving new `cells` array and rendering result
-// also needs to pass a `toggleCell` callback to `Cell` component so users can click them
 
 class Board extends Component {
 
