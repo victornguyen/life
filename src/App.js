@@ -13,7 +13,7 @@ class App extends Component {
     super(props)
     const { ROWS: rows, COLS: cols } = BOARD_DEFAULTS
     this.state = {
-      cells: createCells({ rows, cols }),
+      cells: createCells({ rows, cols, random: true }),
       cols,
       rows,
       evolving: false,
