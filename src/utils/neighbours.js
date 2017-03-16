@@ -2,10 +2,13 @@ import flatten from 'lodash/flatten'
 import { getCell } from './cells'
 
 export function shouldCellLive({ x, y, cells }) {
+  const isCellLive = getCell({ x, y, cells })
   const alive = liveNeighbourCount(
     getNeighbours({ x, y, cells })
   )
-  return alive === 2 || alive === 3
+  return isCellLive
+    ? alive === 2 || alive === 3
+    : alive === 3
 }
 
 function getNeighbours({ x, y, cells = [] }) {
