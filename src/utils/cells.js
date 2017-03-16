@@ -6,7 +6,7 @@ export function createCells({ cols = 10, rows = 5, random = false } = {}) {
   return times(rows, () => times(cols, () => {
     return random
       // TODO: add weight slider to generate more dead/alive cells?
-      ? Math.random() >= 0.9
+      ? Math.random() >= 0.95
       : false
   }))
 }
