@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createCells, toggleCell } from './utils/cells'
 import { evolve } from './utils/cells'
-import { BOARD_DEFAULTS } from './constants'
+import { BOARD_DEFAULTS, SPEED_DEFAULT } from './constants'
 import Board from './Board';
 import './App.css';
 
@@ -16,6 +16,7 @@ class App extends Component {
       cells: createCells({ rows, cols, random: true }),
       cols,
       rows,
+      speed: SPEED_DEFAULT,
       evolving: false,
     }
   }
@@ -42,14 +43,14 @@ class App extends Component {
   }
 
   evolve = () => {
-    if (!this.state.evolving) {
+    const { evolving, speed } = this.state
+    if (!evolving) {
       this.setState({ evolving: true })
     }
     this.step()
     this.timeout = setTimeout(() => {
       this.evolve()
-    }, 50)
-    // TODO: make speed adjustable?
+    }, speed)
   }
 
   stop = () => {
@@ -74,19 +75,26 @@ class App extends Component {
     this.generateCells({ random: true })
   }
 
+  handleSpeedChange = (event) => {
+    this.setState({ speed: event.target.value })
+  }
+
   render() {
+    const { cells, evolving, speed } = this.state
     return (
       <div className="App">
         <h1>Welcome to the Game of Life!!!!</h1>
-        <Board cells={this.state.cells} toggle={this.toggle} />
+        <Board cells={cells} toggle={this.toggle} />
         <button onClick={this.randomise}>NEW GAME</button>
         <button onClick={this.clear}>CLEAR</button>
         <button onClick={this.tick}>TICK</button>
         {
-          this.state.evolving
+          evolving
             ? <button onClick={this.stop}>STOP</button>
             : <button onClick={this.evolve}>EVOLVE</button>
         }
+        <input type="range" min="50" max="1000" step="50" value={speed} onChange={this.handleSpeedChange} />
+        {speed}ms
       </div>
     );
   }

@@ -3,3 +3,5 @@ export const BOARD_DEFAULTS = {
   ROWS: 40,
 }
 
+export const SPEED_DEFAULT = 500
+

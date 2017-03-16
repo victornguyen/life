@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import isEqual from 'lodash/isEqual'
 import Cell from './Cell';
 import './Board.css';
 
@@ -12,6 +13,10 @@ class Board extends Component {
       PropTypes.arrayOf(PropTypes.bool)
     ),
     toggle: PropTypes.func,
+  }
+
+  shouldComponentUpdate({ cells: nextCells }) {
+    return !isEqual(this.props.cells, nextCells)
   }
 
   renderCell({ isAlive, x, y }) {
